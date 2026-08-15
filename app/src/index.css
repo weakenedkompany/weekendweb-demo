@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 33% 96%;
+    --foreground: 225 22% 9%;
+    --card: 42 38% 98%;
+    --card-foreground: 225 22% 9%;
+    --popover: 42 38% 98%;
+    --popover-foreground: 225 22% 9%;
+    --primary: 224 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 18% 91%;
+    --secondary-foreground: 225 22% 9%;
+    --muted: 40 18% 91%;
+    --muted-foreground: 224 8% 42%;
+    --accent: 224 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 18% 72% / 0.26;
+    --input: 36 18% 72% / 0.32;
+    --ring: 224 100% 50%;
+    --radius: 0.25rem;
+    --grid-line: rgba(10, 18, 35, 0.055);
+    --grid-major: rgba(10, 18, 35, 0.095);
+    --ink-soft: rgba(10, 18, 35, 0.58);
+    --ink-faint: rgba(10, 18, 35, 0.38);
+    --paper-speck: rgba(19, 24, 35, 0.11);
+    --paper-fiber: rgba(255, 255, 255, 0.5);
+    --panel: rgba(255, 253, 247, 0.74);
+    --panel-hover: rgba(255, 253, 247, 0.94);
+    --accent-blue: #0047ff;
+  }
+
+  .dark {
+    --background: 240 7% 2%;
+    --foreground: 0 0% 100%;
+    --card: 240 6% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 6% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 187 94% 43%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 240 4% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 187 94% 43%;
+    --accent-foreground: 0 0% 0%;
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 187 94% 43%;
+    --grid-line: rgba(255,255,255,0.035);
+    --grid-major: rgba(255,255,255,0.08);
+    --ink-soft: rgba(255,255,255,0.56);
+    --ink-faint: rgba(255,255,255,0.36);
+    --panel: rgba(20, 20, 25, 0.62);
+    --panel-hover: rgba(30, 30, 38, 0.76);
+    --paper-speck: rgba(255, 255, 255, 0);
+    --paper-fiber: rgba(255, 255, 255, 0);
+    --accent-blue: #22d3ee;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent-blue) 24%, transparent);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--foreground)) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-panel {
+    background: var(--panel);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  }
+
+  .glass-panel:hover {
+    background: var(--panel-hover);
+    border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+    transition: all 0.4s ease-out;
+  }
+
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.15em];
+    color: var(--accent-blue);
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 160px 160px, 160px 160px;
+  }
+
+  .thin-border {
+    border: 1px solid hsl(var(--border));
+  }
+
+  .thin-border-active {
+    border: 1px solid color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  }
+
+  .construction-field {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(var(--grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-major) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px, 128px 128px, 128px 128px;
+  }
+
+  .construction-field::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 0;
+    border-radius: 0;
+    background-image:
+      radial-gradient(circle at 12% 18%, var(--paper-speck) 0 0.55px, transparent 0.8px),
+      radial-gradient(circle at 72% 32%, var(--paper-speck) 0 0.45px, transparent 0.75px),
+      radial-gradient(circle at 42% 78%, var(--paper-speck) 0 0.5px, transparent 0.8px),
+      radial-gradient(circle at 88% 64%, var(--paper-speck) 0 0.45px, transparent 0.75px),
+      linear-gradient(115deg, transparent 0 46%, var(--paper-fiber) 47%, transparent 48% 100%);
+    background-size: 13px 13px, 17px 17px, 19px 19px, 23px 23px, 180px 180px;
+    opacity: 0.48;
+    mix-blend-mode: multiply;
+  }
+
+  .construction-orbit {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    aspect-ratio: 1;
+    border: 1px solid var(--grid-major);
+    border-radius: 999px;
+  }
+
+  .construction-orbit--large {
+    width: min(46vw, 560px);
+    right: 7vw;
+    top: 14vh;
+  }
+
+  .construction-orbit--small {
+    width: min(28vw, 340px);
+    left: 8vw;
+    bottom: 10vh;
+  }
+
+  .technical-label {
+    @apply font-mono uppercase tracking-[0.18em];
+    color: var(--ink-faint);
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .editorial-rule {
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  .vector-system-map {
+    color: hsl(var(--foreground));
+    animation: vector-drift 12s ease-in-out infinite alternate;
+  }
+
+  .vector-flow {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .vector-flow--one {
+    stroke-dasharray: 9 11;
+    animation: vector-dash 18s linear infinite;
+  }
+
+  .vector-flow--two {
+    stroke-dasharray: 4 10;
+    animation: vector-dash 24s linear infinite reverse;
+  }
+
+  .vector-node {
+    color: hsl(var(--foreground));
+    animation: vector-node-fade 4.5s ease-in-out infinite;
+  }
+
+  .vector-pulse {
+    animation: vector-pulse 3.5s ease-in-out infinite;
+    transform-origin: 410px 260px;
+  }
+
+  @keyframes vector-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-18px, 10px, 0);
+    }
+  }
+
+  @keyframes vector-dash {
+    to {
+      stroke-dashoffset: -240;
+    }
+  }
+
+  @keyframes vector-node-fade {
+    0%,
+    100% {
+      opacity: 0.62;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes vector-pulse {
+    0%,
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+
+  .dark .logo-mark {
+    filter: invert(1);
+  }
+
+  :root:not(.dark) .bg-void {
+    background-color: hsl(var(--background));
+  }
+
+  :root:not(.dark) .bg-surface {
+    background-color: hsl(var(--card));
+  }
+
+  :root:not(.dark) .text-white,
+  :root:not(.dark) .text-white\/90,
+  :root:not(.dark) .text-white\/80,
+  :root:not(.dark) .text-white\/70,
+  :root:not(.dark) .text-white\/60 {
+    color: hsl(var(--foreground));
+  }
+
+  :root:not(.dark) .text-white\/50,
+  :root:not(.dark) .text-white\/40 {
+    color: var(--ink-soft);
+  }
+
+  :root:not(.dark) .text-white\/30,
+  :root:not(.dark) .text-white\/20 {
+    color: var(--ink-faint);
+  }
+
+  :root:not(.dark) .border-white\/5,
+  :root:not(.dark) .border-white\/10,
+  :root:not(.dark) .border-white\/20 {
+    border-color: hsl(var(--border));
+  }
+
+  :root:not(.dark) .hover\:bg-white:hover {
+    background-color: hsl(var(--foreground));
+  }
+
+  :root:not(.dark) .hover\:text-black:hover {
+    color: hsl(var(--background));
+  }
+
+  :root:not(.dark) .text-cyan-400,
+  :root:not(.dark) .text-cyan-400\/70,
+  :root:not(.dark) .text-cyan-400\/60,
+  :root:not(.dark) .text-cyan-400\/50,
+  :root:not(.dark) .hover\:text-cyan-300:hover,
+  :root:not(.dark) .hover\:text-cyan-400:hover,
+  :root:not(.dark) .group:hover .group-hover\:text-cyan-400 {
+    color: var(--accent-blue);
+  }
+
+  :root:not(.dark) .bg-cyan-500,
+  :root:not(.dark) .hover\:bg-cyan-400:hover {
+    background-color: var(--accent-blue);
+    color: white;
+  }
+
+  :root:not(.dark) .bg-cyan-400\/10 {
+    background-color: color-mix(in srgb, var(--accent-blue) 10%, transparent);
+  }
+
+  :root:not(.dark) .border-cyan-400,
+  :root:not(.dark) .border-cyan-500\/50,
+  :root:not(.dark) .hover\:border-cyan-500\/50:hover {
+    border-color: color-mix(in srgb, var(--accent-blue) 50%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
