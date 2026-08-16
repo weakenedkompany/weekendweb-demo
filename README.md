@@ -134,7 +134,7 @@ Building the underlying systems required for businesses to deploy, operate, moni
 
 ---
 
-# 🌐 Our Technology Vision
+#  Our Technology Vision
 
 We believe the next generation of software will evolve from:
 
