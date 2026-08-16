@@ -333,7 +333,7 @@ Future implementations may include:
 
 ---
 
-# 🌌 The Bigger Vision
+#  The Bigger Vision
 
 We believe software is entering a new era.
 
@@ -347,7 +347,7 @@ WeekendKompany wants to be part of building that generation.
 
 ---
 
-# 🤝 Let's Build the Future
+#  Let's Build the Future
 
 Have an idea?
 
