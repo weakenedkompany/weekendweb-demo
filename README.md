@@ -158,7 +158,7 @@ Our goal is to create systems that can **perceive, understand, reason, act, lear
 
 ---
 
-# 🏗️ How We Build
+#  How We Build
 
 Our development process is designed to move ideas from concept to production.
 
