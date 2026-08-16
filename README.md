@@ -12,11 +12,11 @@ Our mission is simple:
 
 ---
 
-## 🚀 What We Do
+##  What We Do
 
 WeekendKompany operates across AI, automation, software engineering, and emerging technology.
 
-### 🤖 AI Automation
+###  AI Automation
 
 We build intelligent automation systems that eliminate repetitive processes and help businesses operate faster and smarter.
 
@@ -41,7 +41,7 @@ The objective isn't simply to automate tasks.
 
 ---
 
-## 🧠 AI Development
+##  AI Development
 
 We develop custom AI systems designed around specific business and product requirements.
 
@@ -66,7 +66,7 @@ We combine AI models with reliable software architecture to create solutions tha
 
 ---
 
-## 💻 Advanced Software Development
+##  Advanced Software Development
 
 AI is only one part of the system.
 
@@ -92,7 +92,7 @@ Our development philosophy focuses on:
 
 ---
 
-# 🔬 Future Technology & R&D
+#  Future Technology & R&D
 
 The future of technology is moving beyond traditional applications.
 
