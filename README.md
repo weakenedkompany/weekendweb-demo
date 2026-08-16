@@ -273,7 +273,7 @@ We don't choose technology because it is popular.
 
 ---
 
-# 🎯 Who We Work With
+#  Who We Work With
 
 WeekendKompany works with organizations that want to build or adopt advanced technology.
 
