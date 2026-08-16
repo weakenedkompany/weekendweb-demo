@@ -218,7 +218,7 @@ We design systems that can evolve with it.
 
 ---
 
-# 🛠️ Technology
+#  Technology
 
 Our technology stack is selected according to the requirements of each project.
 
