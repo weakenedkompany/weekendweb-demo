@@ -1,5 +1,5 @@
 # WeekendKompany
-
+bro
 > **Engineering Intelligence for the Next Generation.**
 
 WeekendKompany is a high-edge technology development agency focused on **AI automation, AI development, intelligent software systems, and emerging technologies**.
